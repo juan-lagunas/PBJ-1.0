@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
     'core',
+    'inventory',
 ]
 
 STATIC_URL = "static/"

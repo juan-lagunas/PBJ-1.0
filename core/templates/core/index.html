@@ -1,7 +1,153 @@
 {% extends 'core/base.html' %}
 {% block title %}Home{% endblock %}
+
+<!--Logged in home-->
 {% block body %}
+<main>
+    <div id="wrapper" class="absolute min-h-screen w-full top-0 bg-zinc-100 dark:bg-zinc-900"></div>
 
+    <div class="relative w-10/12 mx-auto h-[700px] md:h-[800px] xl:h-[950px]">
+        <div class="w-full h-full flex">
+            <div class="m-auto w-full">
+                <div class="w-full text-center font-bold text-4xl md:text-5xl xl:text-6xl 2xl:text-7xl mb-5">Welcome {{ request.user.username }}.</div>
+                <form action="" class="relative lg:w-10/12 xl:w-1/2 2xl:w-1/3 m-auto">
+                    <input id="search" type="text" placeholder="Search part" class="w-full pl-5 py-3 rounded-lg shadow-sm outline-none bg-zinc-300 dark:bg-zinc-700 placeholder:text-zinc-500 border-transparent focus:border-transparent focus:ring-0 focus:text-white focus:bg-zinc-700 focus:placeholder:text-white dark:focus:placeholder:text-zinc-900 dark:focus:bg-zinc-200 dark:focus:text-zinc-900 focus:rounded-full transition ease-in-out delay-100">
+                    <button class="-ml-12 py-2 px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <div class="relative w-10/12 h-[800px] xl:h-[950px] bg-white mx-auto">
+        <div>
+
+        </div>
+        <div>
+            
+        </div>
+    </div>
+    
+
+</main>
+
+<footer class="relative w-10/12 xl:w-10/12 h-20 mx-auto">
+    <div class="h-full flex m-auto justify-end">
+        <div class="my-auto font-semibold">Created By PoopyButtJ</div>
+    </div>
+</footer>
+
+{% endblock %}
+
+<!--Not logged in home-->
+{% block nobody %}
+
+<main id="main" class="relative w-10/12 mx-auto">
+    <div class="relative flex mx-auto h-[700px] md:h-[850px] lg:h-[950px] 2xl:h-[1050px]">
+        <div class="my-auto w-full md:w-1/2">
+            <div class="text-5xl sm:text-8xl font-semibold mb-6">Lorem ipsum.</div>
+            <div class="sm:text-lg leading-relaxed my-10">Etiam laoreet id tellus vitae porta. Phasellus dapibus pulvinar neque eu ultricies. Vestibulum pharetra lacus urna, a bibendum purus imperdiet ac.</div>
+            <div class="text-lg sm:text-2xl">
+                <a href="{% url 'core:signup' %}" class="py-3 px-5 font-semibold rounded hover:rounded-full bg-zinc-900 text-white dark:bg-zinc-200 dark:text-zinc-800 transition ease-in-out delay-150">Get started</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto my-12 sm:my-24">
+        <div class="relative w-full lg:flex lg:flex-row lg:space-x-6">
+            <div class="flex mb-5 lg:m-0 lg:w-1/3 h-[300px] sm:h-[450px] rounded-xl bg-cyan-800 hover:bg-cyan-600 dark:bg-cyan-900 dark:hover:bg-cyan-700 text-zinc-300 hover:text-white dark:text-zinc-300 dark:hover:text-zinc-200 transition ease-in-out">
+                <a href="" class="flex h-full w-full">
+                    <div class="m-auto text-xl sm:text-2xl lg:text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam laoreet.</div>
+                </a>
+            </div>
+            <div class="flex mb-5 lg:m-0 lg:w-1/3 h-[300px] sm:h-[450px] rounded-xl bg-purple-800 hover:bg-purple-600 dark:bg-purple-900 dark:hover:bg-purple-700 text-zinc-300 hover:text-white dark:text-zinc-300 dark:hover:text-zinc-200 transition ease-in-out">
+                <a href="" class="flex h-full w-full">
+                    <div class="m-auto text-xl sm:text-2xl lg:text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam laoreet.</div>
+                </a>
+            </div>
+            <div class="flex mb-5 lg:m-0 lg:w-1/3 h-[300px] sm:h-[450px] rounded-xl bg-rose-800 hover:bg-rose-600 dark:bg-rose-900 dark:hover:bg-rose-700 text-zinc-300 hover:text-white dark:text-zinc-300 dark:hover:text-zinc-200 transition ease-in-out">
+                <a href="" class="flex h-full w-full">
+                    <div class="m-auto text-xl sm:text-2xl lg:text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam laoreet.</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative mx-auto my-20 sm:my-40 2xl:my-60">
+
+        <div class="text-5xl 2xl:text-7xl text-center font-bold uppercase font-sans pb-28">Checkout products</div>
+
+        <ul class="lg:flex lg:flex-row lg:space-x-6">
+            <li class="md:w-3/4 mx-auto mb-10 lg:my-0 lg:w-1/4 rounded-xl overflow-hidden">
+                <div class="relative h-48 2xl:h-64 bg-sky-800 dark:bg-sky-900"></div>
+                <div class="relative h-60 2xl:h-96 bg-white dark:bg-zinc-200 dark:text-zinc-800 overflow-hidden">
+                    <div class="text-md h-1/3 capitalize px-2 py-2 2xl:px-6 2xl:py-8 border border-b-zinc-200 dark:border-b-zinc-900">
+                        <div class="2xl:mb-2">Lorem ipsum</div>
+                        <div class="text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam</div>
+                    </div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                        <div class="text-md h-1/3 flex">
+                        <button class="bg-zinc-900 m-auto py-4 px-20 lg:py-2 lg:px-4 2xl:py-5 2xl:px-10 text-zinc-200 rounded-md hover:rounded-full transition ease-in-out">Add to cart</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="md:w-3/4 mx-auto mb-10 lg:my-0 lg:w-1/4 rounded-xl overflow-hidden">
+                <div class="relative h-48 2xl:h-64 bg-sky-800 dark:bg-sky-900"></div>
+                <div class="relative h-60 2xl:h-96 bg-white dark:bg-zinc-200 dark:text-zinc-800 overflow-hidden">
+                    <div class="text-md h-1/3 capitalize px-2 py-2 2xl:px-6 2xl:py-8 border border-b-zinc-200 dark:border-b-zinc-900">
+                        <div class="2xl:mb-2">Lorem ipsum</div>
+                        <div class="text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam</div>
+                    </div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                        <div class="text-md h-1/3 flex">
+                        <button class="bg-zinc-900 m-auto py-4 px-20 lg:py-2 lg:px-4 2xl:py-5 2xl:px-10 text-zinc-200 rounded-md hover:rounded-full transition ease-in-out">Add to cart</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="md:w-3/4 mx-auto mb-10 lg:my-0 lg:w-1/4 rounded-xl overflow-hidden">
+                <div class="relative h-48 2xl:h-64 bg-sky-800 dark:bg-sky-900"></div>
+                <div class="relative h-60 2xl:h-96 bg-white dark:bg-zinc-200 dark:text-zinc-800 overflow-hidden">
+                    <div class="text-md h-1/3 capitalize px-2 py-2 2xl:px-6 2xl:py-8 border border-b-zinc-200 dark:border-b-zinc-900">
+                        <div class="2xl:mb-2">Lorem ipsum</div>
+                        <div class="text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam</div>
+                    </div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                        <div class="text-md h-1/3 flex">
+                        <button class="bg-zinc-900 m-auto py-4 px-20 lg:py-2 lg:px-4 2xl:py-5 2xl:px-10 text-zinc-200 rounded-md hover:rounded-full transition ease-in-out">Add to cart</button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="md:w-3/4 mx-auto mb-10 lg:my-0 lg:w-1/4 rounded-xl overflow-hidden">
+                <div class="relative h-48 2xl:h-64 bg-sky-800 dark:bg-sky-900"></div>
+                <div class="relative h-60 2xl:h-96 bg-white dark:bg-zinc-200 dark:text-zinc-800 overflow-hidden">
+                    <div class="text-md h-1/3 capitalize px-2 py-2 2xl:px-6 2xl:py-8 border border-b-zinc-200 dark:border-b-zinc-900">
+                        <div class="2xl:mb-2">Lorem ipsum</div>
+                        <div class="text-lg 2xl:text-2xl font-bold uppercase">Lorem ipsum etiam</div>
+                    </div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                    <div class="text-md h-1/6 px-2 py-2 2xl:px-6 2xl:py-4 border border-b-zinc-200 dark:border-b-zinc-900">Lorem ipsum etiam</div>
+                        <div class="text-md h-1/3 flex">
+                        <button class="bg-zinc-900 m-auto py-4 px-20 lg:py-2 lg:px-4 2xl:py-5 2xl:px-10 text-zinc-200 rounded-md hover:rounded-full transition ease-in-out">Add to cart</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<footer class="w-10/12 xl:w-10/12 h-20 mx-auto">
+    <div class="h-full flex m-auto justify-end">
+        <div class="my-auto font-semibold">Created By PoopyButtJ</div>
+    </div>
+</footer>
 
 {% endblock %}

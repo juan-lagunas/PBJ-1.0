@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% block nobody %}
+<main id="main" class="relative flex h-screen w-11/12 xl:w-10/12 mx-auto">
+    
+    <form action="{% url 'core:signup' %}" method="post" class="m-auto bg-white p-12 sm:p-16 max-w-md shadow-md rounded-lg dark:text-zinc-900">
+        {% csrf_token %}
+        <label for="username" class="text-sm font-bold">Username</label>
+        <input type="text" name="username" class="relative block my-1 sm:my-3 py-2 pl-4 rounded focus:outline-none" autofocus>
+        <label for="email" class="text-sm font-bold">Email</label>
+        <input type="text" name="email" class="relative block my-1 sm:my-3 py-2 pl-4 rounded focus:outline-none" autofocus>
+        <label for="password" class="text-sm font-bold">Password</label>
+        <input type="password" name="password" class="relative block my-1 sm:my-3 py-2 pl-4 rounded focus:outline-none">
+        <button type="submit" class="my-3 w-full py-3 bg-zinc-900 text-white rounded hover:rounded-full transition ease-in-out">Sign up</button>
+        {% if fail %}
+        <p class="text-xs font-bold text-rose-600"> {{ fail }} </p>
+        {% endif %}
+    </form>
+
+</main>
+{% endblock %}

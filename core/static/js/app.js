@@ -44,10 +44,12 @@ var search = document.getElementById('search');
 var wrapper = document.getElementById('wrapper');
 
 search.addEventListener('focus', () => {
+    wrapper.classList.toggle('bg-zinc-100');
     wrapper.classList.add('bg-zinc-300');
 });
 
 search.addEventListener('focusout', () => {
     wrapper.classList.remove('bg-zinc-300');
+    wrapper.classList.toggle('bg-zinc-100');
 });
 

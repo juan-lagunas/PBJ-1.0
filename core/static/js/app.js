@@ -1,3 +1,4 @@
+
 var themeToggleDarkIcon = document.getElementById('dark-mode');
 var themeToggleLightIcon = document.getElementById('light-mode');
 
@@ -7,6 +8,7 @@ if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localS
 } else {
     themeToggleDarkIcon.classList.remove('hidden');
 }
+
 
 var themeToggleBtn = document.getElementById('theme-toggle');
 
@@ -52,4 +54,5 @@ search.addEventListener('focusout', () => {
     wrapper.classList.remove('bg-zinc-300');
     wrapper.classList.toggle('bg-zinc-100');
 });
+
 

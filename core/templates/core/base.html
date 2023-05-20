@@ -9,7 +9,7 @@
 
     {% tailwind_css %}
 </head>
-<body class="p-0 m-0 bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 bgfont-sans">
+<body class="p-0 m-0 bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100 transition ease-in-out">
     {% if user.is_authenticated %}
         
         <!--Home if logged in-->
@@ -84,8 +84,8 @@
                     <a href="{% url 'core:index' %}" class="text-2xl xxl:text-3xl font-semibold">PBJ.</a>
                 </div>
                 <div class="my-auto flex sm:space-x-6 justify-end">
-                    <a href="{% url 'core:login' %}" class="py-3 px-4 rounded-lg hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-zinc-900 transition ease-in-out">Sign In</a>
-                    <a href="{% url 'core:signup' %}" class="py-3 px-4 rounded-lg hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-zinc-900 transition ease-in-out">Sign Up</a>
+                    <a href="{% url 'core:login' %}" class="py-3 px-4 rounded-lg hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Sign In</a>
+                    <a href="{% url 'core:signup' %}" class="py-3 px-4 rounded-lg hover:bg-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Sign Up</a>
                 </div>
             </div>
         </header>

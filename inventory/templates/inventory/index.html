@@ -2,33 +2,33 @@
 {% block title %}Inventory{% endblock %}
 {% block body %}
 <main>
-    <div class="w-11/12 lg:w-3/4 h-96 mx-auto flex">
+    <div class="w-11/12 lg:w-3/4 h-60 mx-auto flex">
         <div class="m-auto  text-center">
             <div class="text-7xl font-semibold mb-4">Manage inventory</div>
         </div>
     </div>
 
-    <div class="w-full py-24 flex bg-white dark:bg-black">
-        <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[750px] m-auto ">
-            <div class="grid grid-cols-2 grid-rows-2 gap-4 h-full w-full bg-zinc-100">
-                <a href="" class=" bg-zinc-200 dark:bg-zinc-900 rounded-xl shadow-md flex">
-                    <div class="m-auto">
-                        <div class="text-5xl font-semibold mb-2 capitalize">Add inventory</div>
-                        <div class=" font-semibold">Increase the quantity of a part when new shipments come in.</div>
+    <div class="w-full py-20 flex bg-white dark:bg-black">
+        <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[700px] m-auto ">
+            <div class="grid grid-cols-1 grid-rows-3 lg:grid-cols-2 lg:grid-rows-2 gap-4 h-full w-full text-center transition ease-in-out">
+                <div id="add" class=" bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900 dark:hover:bg-zinc-700 rounded-xl shadow-md flex cursor-pointer">
+                    <div class="m-auto w-10/12">
+                        <div class="text-3xl lg:text-5xl font-semibold mb-3 capitalize">Add inventory</div>
+                        <div class="text-sm lg:text-base font-semibold">Increase the quantity of a part.</div>
                     </div>
-                </a>
-                <a href="" class=" bg-zinc-200 dark:bg-zinc-900 rounded-xl shadow-md flex">
-                    <div class="m-auto">
-                        <div class="text-5xl font-semibold mb-2 capitalize">Edit inventory</div>
-                        <div class=" font-semibold">Make any changes to the values of any part.</div>
+                </div>
+                <div id="edit" class=" bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900 dark:hover:bg-zinc-700 rounded-xl shadow-md flex cursor-pointer">
+                    <div class="m-auto w-10/12">
+                        <div class="text-3xl lg:text-5xl font-semibold mb-3 capitalize">Edit inventory</div>
+                        <div class="text-sm lg:text-base font-semibold">Make changes to the values of a part.</div>
                     </div>
-                </a>
-                <a href="" class="col-span-2 bg-zinc-200 dark:bg-zinc-900 rounded-xl shadow-md flex">
-                    <div class="m-auto">
-                        <div class="text-5xl font-semibold mb-2 capitalize">Create new Part</div>
-                        <div class=" font-semibold">Create an entirely new part to began storing inventory for.</div>
+                </div>
+                <div id="create" class="lg:col-span-2 bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900 dark:hover:bg-zinc-700 rounded-xl shadow-md flex cursor-pointer">
+                    <div class="m-auto w-10/12">
+                        <div class="text-3xl lg:text-5xl font-semibold mb-3 capitalize">Create new Part</div>
+                        <div class="text-sm lg:text-base font-semibold">Create an entirely new part to began storing inventory for.</div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>

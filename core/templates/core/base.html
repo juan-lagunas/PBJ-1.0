@@ -55,14 +55,18 @@
                         </button>
                     </form>
 
-                    <div class="my-auto flex md:space-x-2.5 text-sm font-semibold">
-                        <a href="{% url 'core:signout' %}" class="md:py-3 md:px-3 rounded-lg hover:bg-zinc-900 hover:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Sign Out</a>
-                        <a href="{% url 'inventory:index' %}" class="md:py-3 md:px-3 rounded-lg hover:bg-zinc-900 hover:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Inventory</a>
-                        <a href="" class="md:py-3 md:px-3 rounded-lg hover:bg-zinc-900 hover:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900">Cart</a>
-                        <button id="theme-toggle" class="md:py-3 md:px-3 bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-300">
+                    <div class="my-auto flex space-x-2 text-sm font-semibold shrink-1">
+                        
+                        <button id="theme-toggle" class="py-4 px-4 bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-300">
                             <span id="light-mode" class="hidden">Light Mode</span>
                             <span id="dark-mode" class="hidden">Dark Mode</span>
                         </button>
+                        <a href="{% url 'core:signout' %}" class="my-auto px-4 rounded-lg">
+                            <div class="relative inline-flex items-center justify-center h-12 w-12 overflow-hidden bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 rounded-full">
+                                <span class="font-medium">{{ request.user.username }}</span>
+                            </div>
+                        </a>
+                        <a href="" class="py-4 px-4 rounded-lg hover:bg-zinc-900 hover:text-zinc-100 dark:hover:bg-zinc-100 dark:hover:text-zinc-900 ">Cart</a>
                     </div>
 
                 </div>
@@ -71,6 +75,12 @@
 
         {% block body %}
         {% endblock %}
+
+        <footer class="relative w-11/12 lg:w-3/4 h-20 mx-auto">
+            <div class="h-full flex m-auto justify-end">
+                <div class="my-auto font-semibold">Created By PoopyButtJ</div>
+            </div>
+        </footer>
 
                 
     {% else %}

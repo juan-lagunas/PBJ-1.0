@@ -2,6 +2,41 @@
 {% block title %}Inventory{% endblock %}
 {% block body %}
 <main>
-    <div class="w-10/12 lg:w-3/4 h-96 bg-zinc-400 mx-auto"></div>
+    <div class="w-11/12 lg:w-3/4 h-96 mx-auto flex">
+        <div class="m-auto  text-center">
+            <div class="text-7xl font-semibold mb-4">Manage inventory</div>
+            <div class="text-2xl font-normal">Choose to add or edit a part.</div>
+        </div>
+    </div>
+    <div class="w-full py-24 flex bg-white dark:bg-black">
+        <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[600px] flex flex-row m-auto gap-12">
+            <div class="basis-1/2">
+                <div class="h-1/5">
+                    <div class="text-5xl font-semibold mb-2 capitalize">Add inventory</div>
+                    <div class=" font-semibold">Create new parts in inventory or update the quanitity of existing ones.</div>
+                </div>
+                <a href="">
+                    <div class="h-4/5 bg-zinc-200 dark:bg-zinc-900 rounded-xl overflow-hidden flex">
+                        <div class="relative w-10/12 h-3/4 m-auto ">
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="basis-1/2">
+                <div class="h-1/5">
+                    <div class="text-5xl font-semibold mb-2 capitalize">Edit inventory</div>
+                    <div class=" font-semibold">Update the quantity of parts in inventory or alter their values.</div>
+                </div>
+                <a href="">
+                    <div class="h-4/5 bg-zinc-200 dark:bg-zinc-900 rounded-xl overflow-hidden flex">
+                        <div class="relative w-10/12 h-3/4 m-auto ">
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </main>
 {% endblock %}

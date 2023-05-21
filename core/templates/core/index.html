@@ -40,66 +40,50 @@
         <div class="relative w-11/12 lg:w-7/12 mx-auto py-10 md:py-20">
             <div class="grid grid-rows-2 xl:grid-rows-1 grid-cols-2 xl:grid-cols-4 gap-2 h-[380px] xl:h-[180px] 2xl:w-10/12 mx-auto">
                 <a href="" class=" text-center hover:text-blue-500 text-lg">
-                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/phone.png" alt="" class="m-auto"></div>
-                    <span class="capitalize">phone</span>
+                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/boxes.png" alt="" class="m-auto"></div>
+                    <span class="capitalize">browse</span>
                 </a>
                 <a href="" class=" text-center hover:text-blue-500 text-lg">
-                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/laptop.png" alt="" class="m-auto"></div>
-                    <span class="capitalize">laptop</span>
+                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/trend.png" alt="" class="m-auto h-3/4"></div>
+                    <span class="capitalize">Popular</span>
                 </a>
-                <a href="" class=" text-center hover:text-blue-500 text-lg">
-                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/ipad.png" alt="" class="m-auto"></div>
-                    <span class="capitalize">tablet</span>
+                <a href="{% url 'inventory:index' %}" class=" text-center hover:text-blue-500 text-lg">
+                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex "><img src="static/img/edit.png" alt="" class="m-auto h-1/2 object-scale-down"></div>
+                    <span class="capitalize">inventory</span>
                 </a>
                 <a href="" class="text-center hover:text-blue-500 text-lg">
-                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/watch.png" alt="" class="m-auto"></div>
-                    <span class="capitalize">watch</span>
+                    <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/data.png" alt="" class="m-auto h-1/2 w-1/2"></div>
+                    <span class="capitalize">Logs</span>
                 </a>
-                
             </div>
         </div>
         
 
         <!--Grid layout-->
         
-        <div class="relative w-11/12 lg:w-7/12 mx-auto pb-20">
-            <div class="text-5xl font-semibold text-center capitalize mb-10">featured items</div>
-            <div class="grid grid-rows-3 grid-cols-3 gap-4 h-screen">
+        <div class="relative w-11/12 2xl:w-7/12 mx-auto pb-20 capitalize">
+            <div class="text-5xl font-semibold text-center mb-10">featured items</div>
+            <div class="grid grid-rows-3 grid-cols-3 gap-4 h-screen ">
 
                 <a href="" class="bg-zinc-200/50 dark:bg-zinc-900 h-full shadow-sm rounded-2xl col-span-2 row-span-2 overflow-hidden">
-                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/macbook.png" alt="" class="m-auto"></div>
-                    <div class="capitalize text-center">
-                        <div class="text-lg font-semibold pb-2">macBook air</div>
-                        <div class="text-base">from $999</div>
-                    </div>
+                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/electrical-wire.webp" alt="" class="m-auto"></div>
+                    <div class="text-center text-2xl font-semibold">electrical wire</div>
                 </a>
                 <a href="" class="bg-zinc-200/50 dark:bg-zinc-900 h-full shadow-sm rounded-2xl col-span-1 row-span-2 overflow-hidden">
-                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/macpro.png" alt="" class="m-auto"></div>
-                    <div class="capitalize text-center">
-                        <div class="text-lg font-semibold pb-2">mac pro</div>
-                        <div class="text-base">from $5599</div>
-                    </div>
+                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/tools.webp" alt="" class="m-auto"></div>
+                    <div class="text-center text-2xl font-semibold">tools</div>
                 </a>
                 <a href="" class="bg-zinc-200/50 dark:bg-zinc-900 h-full shadow-sm rounded-2xl overflow-hidden">
-                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/ipadpros.png" alt="" class="m-auto h-1/2"></div>
-                    <div class=" text-center">
-                        <div class="text-lg font-semibold pb-2">iPad Pro</div>
-                        <div class="text-base">from $799</div>
-                    </div>
+                    <div class="dark:bg-zinc-900 flex h-3/4 w-1/2 mx-auto"><img src="static/img/breakers-distribution-electrical.webp" alt="" class="m-auto object-contain"></div>
+                    <div class="text-center text-2xl font-semibold">Breaker boxes</div>
                 </a>
                 <a href="" class="bg-zinc-200/50 dark:bg-zinc-900 h-full shadow-sm rounded-2xl overflow-hidden">
-                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/airpods.png" alt="" class="m-auto h-1/2"></div>
-                    <div class=" text-center">
-                        <div class="text-lg font-semibold pb-2">AirPods Pro</div>
-                        <div class="text-base">$249</div>
-                    </div>
+                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/electrical-extension-cords.webp" alt="" class="m-auto"></div>
+                    <div class="text-center text-2xl font-semibold">Extension cords</div>
                 </a>
                 <a href="" class="bg-zinc-200/50 dark:bg-zinc-900 h-full shadow-sm rounded-2xl overflow-hidden">
-                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/phone-pro.png" alt="" class="m-auto h-1/2 dark:list-image-none"></div>
-                    <div class=" text-center">
-                        <div class="text-lg font-semibold pb-2">iPad Pro</div>
-                        <div class="text-base">from $799</div>
-                    </div>
+                    <div class="dark:bg-zinc-900 flex h-3/4"><img src="static/img/electrical-boxes-and-covers.webp" alt="" class="m-auto "></div>
+                    <div class="text-center text-2xl font-semibold">electrical boxes</div>
                 </a>
                 
             </div>
@@ -109,11 +93,7 @@
 
 </main>
 
-<footer class="relative w-11/12 lg:w-3/4 h-20 mx-auto">
-    <div class="h-full flex m-auto justify-end">
-        <div class="my-auto font-semibold">Created By PoopyButtJ</div>
-    </div>
-</footer>
+
 
 {% endblock %}
 

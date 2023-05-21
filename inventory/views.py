@@ -8,3 +8,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     return render(request, 'inventory/index.html')
+
+@login_required
+def edit(request):
+    return render(request, 'inventory/edit.html')

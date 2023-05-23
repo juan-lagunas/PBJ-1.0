@@ -13,7 +13,22 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
-        extend: {},
+        extend: {
+            keyframes: {
+                show: {
+                    '0%': {
+                        opacity:'0'
+                    },
+                    '100%': {
+                        opacity:'1'
+                    }
+                }
+            },
+
+            animation: {
+                show:'show .2s forwards',
+            },
+        },
     },
     plugins: [
         require('@tailwindcss/forms'),

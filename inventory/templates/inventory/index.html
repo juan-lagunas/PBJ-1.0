@@ -10,6 +10,76 @@
 
     <div class="w-full py-20 flex bg-white dark:bg-black">
         <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[700px] m-auto ">
+            <!--forms-->
+            <div id="addForm" class="hidden absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
+                <div class="py-2 px-2"><button class="close-add text-3xl">&times;</button></div>
+                <div class="relative flex h-full w-full">
+                    <form action="" class="relative -top-20 m-auto p-20 ">
+                        <div class="text-4xl font-semibold mb-10 uppercase">Add Inventory</div>
+                        <div class="w-full mb-2">
+                            <label for="part" class="text-sm">Part name</label>
+                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        <div class="w-full mb-5">
+                            <label for="quantity" class="text-sm">Quantity</label>
+                            <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autocomplete="off">
+                        </div>
+                        <div class="text-center w-full">
+                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <div id="editForm" class=" absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
+                <div class="py-2 px-2"><button class="close-edit text-3xl">&times;</button></div>
+                <div class="relative flex h-full w-full">
+                    <form action="" class="relative -top-20 m-auto p-20 ">
+                        <div class="text-4xl font-semibold mb-10 uppercase">Edit Inventory</div>
+                        <div class="w-full mb-2">
+                            <label for="part" class="text-sm font-medium">Part name</label>
+                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        <div class="w-full mb-2 text-center capitalize">
+                            <input id="check_name" type="checkbox" name="name" id="" class="w-4 h-4 rounded" data-input="updateName">
+                            <label for="check_name" class="">name</label>
+                            <input id="check_category" type="checkbox" name="category" id="" class="w-4 h-4 rounded" data-input="updateCategory">
+                            <label for="check_category" class="">category</label>
+                            <input id="check_quantity" type="checkbox" name="quantity" id="" class="w-4 h-4 rounded" data-input="updateQuantity">
+                            <label for="check_quantity" class="">quantity</label>
+                            <input id="check_price" type="checkbox" name="price" id="" class="w-4 h-4 rounded" data-input="updatePrice">
+                            <label for="check_price" class="">price</label>
+                            
+                        </div>
+                        <div id="updateName" class="hidden w-full mb-3">
+                            <label for="part" class="text-sm font-medium">Update Part name</label>
+                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        <div id="updateCategory" class="hidden w-full mb-3">
+                            <label for="category" class="text-sm font-medium">Update Category</label>
+                            <input type="text" name="category" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        <div id="updateQuantity" class="hidden w-full mb-3">
+                            <label for="quantity" class="text-sm font-medium">Update quantity</label>
+                            <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        <div id="updatePrice" class="hidden w-full mb-3">
+                            <label for="price" class="text-sm font-medium">Update price</label>
+                            <input type="text" name="price" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                        </div>
+                        
+                        
+                        <div class="text-center w-full py-2">
+                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+
+            <!--Home grid-->
             <div class="grid grid-cols-1 grid-rows-3 lg:grid-cols-2 lg:grid-rows-2 gap-4 h-full w-full text-center transition ease-in-out">
                 <div id="add" class=" bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900 dark:hover:bg-zinc-700 rounded-xl shadow-md flex cursor-pointer">
                     <div class="m-auto w-10/12">
@@ -32,6 +102,39 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Add form
+        const add = document.querySelector('#add');
+        const addForm = document.querySelector('#addForm');
+        add.addEventListener('click', ()=> {
+            addForm.classList.toggle('hidden');
+        });
+
+        const closeAdd = document.querySelector('.close-add');
+        closeAdd.onclick = ()=> {addForm.classList.toggle('hidden');};
+        
+        // Edit form
+        const edit = document.querySelector('#edit');
+        const editForm = document.querySelector('#editForm');
+        edit.addEventListener('click', ()=> {
+            editForm.classList.toggle('hidden');
+        });
+
+        const closeEdit = document.querySelector('.close-edit');
+        closeEdit.onclick = ()=> {editForm.classList.toggle('hidden');};
+
+
+        // Checkbox
+        const updateName = document.querySelect('#updateName');
+        const updateCategory = document.querySelect('#updateCategory');
+        const updateQuantity = document.querySelect('#updateQuantity');
+        const updatePrice = document.querySelect('#updatePrice');
+        const checkboxElems = document.querySelectorAll('input[type="checkbox"]');
+        
+        checkboxElems.foreach()
+        
+    </script>
     
     
 </main>

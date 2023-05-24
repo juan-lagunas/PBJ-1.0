@@ -8,13 +8,23 @@
         </div>
     </div>
 
-    <div class="w-full py-20 flex bg-white dark:bg-black">
-        <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[700px] m-auto ">
-            <!--forms-->
+    <div class="w-full py-20 bg-white dark:bg-black">
+        
+        {% if fail %}
+        <div class="w-full h-12 text-xl text-rose-500 text-center font-semibold"> {{ fail }} </div>
+        {% elif success %}
+        <div class="w-full h-12 text-xl text-emerald-600 text-center font-semibold"> {{ success }} </div>
+        {% endif %}
+        <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[700px] m-auto block">
+            
+            <!--FORMS-->
+            <!--Add Form-->
+            
             <div id="addForm" class="hidden absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
                 <div class="py-2 px-2"><button class="close-add text-3xl">&times;</button></div>
                 <div class="relative flex h-full w-full">
-                    <form action="" class="relative -top-20 m-auto p-20 ">
+                    <form action="{% url 'inventory:index' %}" class="relative -top-20 m-auto p-20 " method="post">
+                        {% csrf_token %}
                         <div class="text-4xl font-semibold mb-10 uppercase">Add Inventory</div>
                         <div class="w-full mb-2">
                             <label for="part" class="text-sm">Part name</label>
@@ -25,14 +35,13 @@
                             <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autocomplete="off">
                         </div>
                         <div class="text-center w-full">
-                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full">
+                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full" name="add_form">
                         </div>
-                        
                     </form>
                 </div>
             </div>
-
-            <div id="editForm" class=" absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
+            <!--Edit Form-->
+            <div id="editForm" class="hidden absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
                 <div class="py-2 px-2"><button class="close-edit text-3xl">&times;</button></div>
                 <div class="relative flex h-full w-full">
                     <form action="" class="relative -top-20 m-auto p-20 ">
@@ -43,35 +52,66 @@
                         </div>
                         <div class="w-full mb-2 text-center capitalize">
                             <input id="check_name" type="checkbox" name="name" id="" class="w-4 h-4 rounded" data-input="updateName">
-                            <label for="check_name" class="">name</label>
+                            <label for="check_name" class="" placeholder="Name">name</label>
                             <input id="check_category" type="checkbox" name="category" id="" class="w-4 h-4 rounded" data-input="updateCategory">
-                            <label for="check_category" class="">category</label>
+                            <label for="check_category" class="" placeholder="Category">category</label>
                             <input id="check_quantity" type="checkbox" name="quantity" id="" class="w-4 h-4 rounded" data-input="updateQuantity">
-                            <label for="check_quantity" class="">quantity</label>
+                            <label for="check_quantity" class="" placeholder="Quantity">quantity</label>
                             <input id="check_price" type="checkbox" name="price" id="" class="w-4 h-4 rounded" data-input="updatePrice">
-                            <label for="check_price" class="">price</label>
+                            <label for="check_price" class="" placeholder="Price">price</label>
                             
                         </div>
                         <div id="updateName" class="hidden w-full mb-3">
-                            <label for="part" class="text-sm font-medium">Update Part name</label>
-                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                            <label for="update_name" class="text-sm font-medium">Update Part name</label>
+                            <input type="text" name="update_nameupdate_" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Name">
                         </div>
                         <div id="updateCategory" class="hidden w-full mb-3">
-                            <label for="category" class="text-sm font-medium">Update Category</label>
-                            <input type="text" name="category" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                            <label for="update_category" class="text-sm font-medium">Update Category</label>
+                            <input type="text" name="update_category" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Category">
                         </div>
                         <div id="updateQuantity" class="hidden w-full mb-3">
-                            <label for="quantity" class="text-sm font-medium">Update quantity</label>
-                            <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                            <label for="update_quantity" class="text-sm font-medium">Update Quantity</label>
+                            <input type="text" name="update_quantity" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Quantity">
                         </div>
                         <div id="updatePrice" class="hidden w-full mb-3">
-                            <label for="price" class="text-sm font-medium">Update price</label>
-                            <input type="text" name="price" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                            <label for="update_price" class="text-sm font-medium">Update Price</label>
+                            <input type="text" name="update_price" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Price">
                         </div>
                         
                         
                         <div class="text-center w-full py-2">
-                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full">
+                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full" name="edit_form">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <!--Create Form-->
+            <div id="createForm" class="hidden absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
+                <div class="py-2 px-2"><button class="close-create text-3xl">&times;</button></div>
+                <div class="relative flex h-full w-full">
+                    <form action="{% url 'inventory:index' %}" method="post" class="relative -top-20 m-auto p-20 ">
+                        {% csrf_token %}
+                        <div class="text-4xl font-semibold mb-10 uppercase">Create Inventory</div>
+                        <div class="w-full mb-2">
+                            <label for="part" class="text-sm">Part name</label>
+                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Name">
+                        </div>
+                        <div class="w-full mb-5">
+                            <label for="category" class="text-sm">Category</label>
+                            <input type="text" name="category" class="block w-full text-zinc-900 pl-2" autocomplete="off" placeholder="Category">
+                        </div>
+                        <div class="w-full mb-5">
+                            <label for="description" class="text-sm">Description</label>
+                            <input type="text" name="description" class="block w-full text-zinc-900 pl-2" autocomplete="off" placeholder="Description">
+                        </div>
+                        <div class="w-full mb-5">
+                            <label for="price" class="text-sm">Price</label>
+                            <input type="text" name="price" class="block w-full text-zinc-900 pl-2" autocomplete="off" placeholder="Price">
+                        </div>
+                        <div class="text-center w-full">
+                            <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full" name="create_form">
                         </div>
                         
                     </form>
@@ -126,13 +166,54 @@
 
 
         // Checkbox
-        const updateName = document.querySelect('#updateName');
-        const updateCategory = document.querySelect('#updateCategory');
-        const updateQuantity = document.querySelect('#updateQuantity');
-        const updatePrice = document.querySelect('#updatePrice');
-        const checkboxElems = document.querySelectorAll('input[type="checkbox"]');
+        const updateName = document.querySelector('#updateName');
+        const updateCategory = document.querySelector('#updateCategory');
+        const updateQuantity = document.querySelector('#updateQuantity');
+        const updatePrice = document.querySelector('#updatePrice');
+        const nameCheckbox = document.querySelector('#check_name');
+        const categoryCheckbox = document.querySelector('#check_category');
+        const quantityCheckbox = document.querySelector('#check_quantity');
+        const priceCheckbox = document.querySelector('#check_price');
+        nameCheckbox.addEventListener('change', ()=> {
+            if (nameCheckbox.checked) {
+                updateName.classList.toggle('hidden');
+            } else {
+                updateName.classList.add('hidden');
+            }
+        });
         
-        checkboxElems.foreach()
+        categoryCheckbox.addEventListener('change', ()=> {
+            if (categoryCheckbox.checked) {
+                updateCategory.classList.toggle('hidden');
+            } else {
+                updateCategory.classList.add('hidden');
+            }
+        });
+
+        quantityCheckbox.addEventListener('change', ()=> {
+            if (quantityCheckbox.checked) {
+                updateQuantity.classList.toggle('hidden');
+            } else {
+                updateQuantity.classList.add('hidden');
+            }
+        });
+
+        priceCheckbox.addEventListener('change', ()=> {
+            if (priceCheckbox.checked) {
+                updatePrice.classList.toggle('hidden');
+            } else {
+                updatePrice.classList.add('hidden');
+            }
+        });
+
+
+        // Create form
+        const create = document.querySelector('#create');
+        const createForm = document.querySelector('#createForm');
+        create.onclick = ()=> {createForm.classList.toggle('hidden')};
+
+        const closeCreate = document.querySelector('.close-create');
+        closeCreate.onclick = function() {createForm.classList.toggle('hidden');};
         
     </script>
     

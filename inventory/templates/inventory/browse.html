@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% block title %}Browse{% endblock %}
+{% block body %}
+<main>
+    <div class="w-11/12 lg:w-3/4 h-60 mx-auto flex">
+        <div class="m-auto text-center font-semibold">
+            <div class="text-7xl mb-4">Browse Inventory</div>
+        </div>
+    </div>
+
+    <div class="w-full py-20 bg-white dark:bg-black">
+        <div class="w-11/12 lg:w-3/4 2xl:w-7/12 mx-auto flex gap-6">
+            <div class="w-1/6 h-96 bg-zinc-200 dark:bg-zinc-900 rounded-2xl">
+                <div class="px-4 py-4 leading-relaxed">
+                    <div class="font-semibold text-xl">Filter by category</div>
+                    
+                    {% for category in categories %}
+                    <div><a href="">{{ category }}</a></div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+            <div class="w-4/5 grid grid-cols-3 gap-3">
+                {% for part in inventory %}
+                <div class="h-72 bg-zinc-200 dark:bg-zinc-900 rounded-2xl px-6 py-10">
+                    <div class="h-1/6 flex"><div class="block text-3xl font-bold my-auto"> {{ part.part.name }} </div></div>
+                    <div class="h-2/3 font-semibold text-md flex">
+                        <div class="my-auto">
+                            <div> Part name: {{ part.part.category }} </div>
+                            <div> Description: {{ part.part.description }} </div>
+                            <div> Price: {{ part.part.usd }} </div>
+                            <div> In stock: {{ part.quantity }} </div>
+                        </div>
+                    </div>
+                    <div class="h-1/6">
+                        <input type="number" class="w-20 py-3 text-zinc-900" value="1" min="1">
+                        <button class="px-4 py-3 text-zinc-100 dark:text-zinc-900 bg-zinc-900 dark:bg-zinc-100 hover:rounded-full font-semibold">Add to bag</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

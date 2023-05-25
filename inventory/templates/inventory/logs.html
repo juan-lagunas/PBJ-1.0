@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% block title %}Logs{% endblock %}
+{% block body %}
+<main>
+    <div class="w-11/12 lg:w-3/4 h-60 mx-auto flex">
+        <div class="m-auto text-center font-semibold">
+            <div class="text-7xl mb-4">Inventory Logs</div>
+        </div>
+    </div>
+
+    <div class="w-full py-20 bg-white dark:bg-black">
+        <div class="w-11/12 lg:w-3/4 mx-auto text-lg font-semibold mb-2">Changes made today:</div>
+        <div class="w-11/12 lg:w-3/4 mx-auto shadow-sm dark:shadow-md bg-zinc-100 dark:bg-zinc-900 rounded-2xl overflow-hidden">
+            <table class="w-full text-center">
+                <thead class="uppercase text-sm bg-zinc-200 dark:bg-zinc-800">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Part</th>
+                        <th scope="col" class="px-6 py-3">method</th>
+                        <th scope="col" class="px-6 py-3">quantity</th>
+                        <th scope="col" class="px-6 py-3">total</th>
+                        <th scope="col" class="px-6 py-3">user</th>
+                        <th scope="col" class="px-6 py-3">date</th>
+                    </tr>
+                </thead>
+                <tbody class=" font-semibold">
+                    {% for log in today %}
+                    <tr>
+                        <th scope="row" class="px-6 py-2"> {{ log.part.name }}</th>
+                        <td class="px-6 py-2"> {{ log.method }} </td>
+                        <td class="px-6 py-2"> {{ log.quantity }} </td>
+                        <td class="px-6 py-2"> {{ log.total }} </td>
+                        <td class="px-6 py-2"> {{ log.user }} </td>
+                        <td class="px-6 py-2"> {{ log.date }} </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+{% endblock %}

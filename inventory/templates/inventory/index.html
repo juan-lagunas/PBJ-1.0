@@ -14,6 +14,7 @@
         <div class="w-full h-12 text-xl text-rose-500 text-center font-semibold"> {{ fail }} </div>
         {% elif success %}
         <div class="w-full h-12 text-xl text-emerald-600 text-center font-semibold"> {{ success }} </div>
+        <div class="w-full h-12 text-xl text-rose-500 text-center font-semibold"> {{ previous }} </div>
         {% endif %}
         <div class="w-11/12 lg:w-3/4 2xl:w-1/2 h-[700px] m-auto block">
             
@@ -28,11 +29,11 @@
                         <div class="text-4xl font-semibold mb-10 uppercase">Add Inventory</div>
                         <div class="w-full mb-2">
                             <label for="part" class="text-sm">Part name</label>
-                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off">
+                            <input type="text" name="part" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Name">
                         </div>
                         <div class="w-full mb-5">
                             <label for="quantity" class="text-sm">Quantity</label>
-                            <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autocomplete="off">
+                            <input type="text" name="quantity" class="block w-full text-zinc-900 pl-2" autocomplete="off" placeholder="Quantity">
                         </div>
                         <div class="text-center w-full">
                             <input type="submit" class="py-3 px-5  cursor-pointer shadow-sm bg-white dark:bg-black hover:scale-105 text-center w-full" name="add_form">
@@ -44,7 +45,8 @@
             <div id="editForm" class="hidden absolute h-[700px] w-11/12 lg:w-3/4 2xl:w-1/2 bg-zinc-300 dark:bg-zinc-900 opacity-0 animate-show">
                 <div class="py-2 px-2"><button class="close-edit text-3xl">&times;</button></div>
                 <div class="relative flex h-full w-full">
-                    <form action="" class="relative -top-20 m-auto p-20 ">
+                    <form action="{% url 'inventory:index' %}" method="post" class="relative -top-20 m-auto p-20 ">
+                        {% csrf_token %}
                         <div class="text-4xl font-semibold mb-10 uppercase">Edit Inventory</div>
                         <div class="w-full mb-2">
                             <label for="part" class="text-sm font-medium">Part name</label>
@@ -63,7 +65,7 @@
                         </div>
                         <div id="updateName" class="hidden w-full mb-3">
                             <label for="update_name" class="text-sm font-medium">Update Part name</label>
-                            <input type="text" name="update_nameupdate_" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Name">
+                            <input type="text" name="update_name" class="block w-full text-zinc-900 pl-2" autofocus autocomplete="off" placeholder="Name">
                         </div>
                         <div id="updateCategory" class="hidden w-full mb-3">
                             <label for="update_category" class="text-sm font-medium">Update Category</label>

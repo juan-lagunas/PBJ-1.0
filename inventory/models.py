@@ -39,6 +39,7 @@ class Inventory(models.Model):
 
 class Log(models.Model):
     part = models.ForeignKey(Part, on_delete=models.SET_NULL, null=True)
+    method = models.CharField(max_length=40)
     quantity = models.IntegerField()
     user = models.CharField(max_length=40)
     date = models.DateTimeField()
@@ -49,4 +50,4 @@ class Log(models.Model):
         return f'${value:,.2f}'
     
     def __str__(self):
-        return f'({self.part.category}) {self.part.name} Qty: {self.quantity} Total: {self.total} User: {self.user} Date: {self.date}'
+        return f'({self.part.category}) {self.part.name} {self.method} Qty: {self.quantity} Total: {self.total} User: {self.user} Date: {self.date}'

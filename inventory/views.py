@@ -51,6 +51,7 @@ def index(request):
         date = datetime.datetime.now()
         Log.objects.create(
             part = part_data,
+            method = 'Add',
             quantity = quantity,
             user = request.user.username,
             date = date,
@@ -63,7 +64,91 @@ def index(request):
 
     # Edit inventory
     if request.method == 'POST' and 'edit_form' in request.POST:
-        passs
+        part = request.POST['part'].title()
+        update_name = request.POST['update_name'].title()
+        update_category = request.POST['update_category'].title()
+        update_quantity = request.POST['update_quantity']
+        update_price = request.POST['update_price']
+
+        if not part:
+            return render(request, 'inventory/index.html', {
+                'fail': 'Must provide a part name.'
+            })
+        
+        # Check that part exists in inventory
+        try:
+            part_data = Part.objects.get(name=part)
+            inventory_data = Inventory.objects.get(part=part_data)
+            # Get old data to display changes made
+            old_inventory = Inventory.objects.get(part=part_data)
+            old_category = part_data.category
+            old_price = part_data.usd
+            old_total = old_inventory.total
+        except:
+            return render(request, 'inventory/index.html', {
+                'fail': 'Part not found in inventory.'
+            })
+        
+
+        # Get category data if exist else create new category
+        try:
+            category_data = Category.objects.get(category=update_category)
+        except:
+            category_data = Category.objects.create(category=update_category)
+        
+        
+        # Change values of part if information was provided
+        if update_name:
+            part_data.name = update_name
+
+        if update_category:
+            part_data.category = category_data
+        
+        if update_price:
+            try:
+                update_price = float(update_price)
+            except ValueError:
+                return render(request, 'inventory/index.html', {
+                    'fail': 'Price not a valid value.'
+                })
+            part_data.price = update_price
+
+        if update_quantity:
+            try:
+                update_quantity = int(update_quantity)
+            except ValueError:
+                return render(request, 'inventory/index.html', {
+                    'fail': 'Quantity not a valid value.'
+                })
+            inventory_data.quantity = update_quantity
+
+
+        # Save after all changes have been made
+        part_data.save()
+        inventory_data.save()
+
+        # Get data about the updated part inorder to log info about the change else use provided part
+        if update_name:
+            part_to_log = Part.objects.get(name=update_name)
+        else:
+            part_to_log = Part.objects.get(name=part)
+
+        part_inventory = Inventory.objects.get(part=part_to_log)
+
+        date = datetime.datetime.now()
+        Log.objects.create(
+            part = part_to_log,
+            method = 'Edit',
+            quantity = part_inventory.quantity,
+            user = request.user.username,
+            date = date,
+        )
+
+        return render(request, 'inventory/index.html', {
+            'success': f'Succesfully changed  to {part_inventory}',
+            'previous': f'from ({old_category}) {part} Qty: {old_inventory.quantity} Price: {old_price} Total: {old_total}'
+        })
+
 
 
     # Create inventory
@@ -118,3 +203,27 @@ def index(request):
         
     return render(request, 'inventory/index.html')
 
+
+@login_required
+def logs(request):
+    date = datetime.date.today()
+    today = Log.objects.filter(date__contains=date).order_by('-date')
+    yesterday = Log.objects.filter(date__contains=date-datetime.timedelta(days=1)).order_by('-date')
+    return render(request, 'inventory/logs.html', {
+        'today': today,
+        'yesterday': yesterday,
+    })
+    
+
+@login_required
+def browse(request):
+    inventory = Inventory.objects.all()
+    categories = []
+    for part in inventory:
+        if part.part.category not in categories:
+            categories.append(part.part.category)
+
+    return render(request, 'inventory/browse.html', {
+        'inventory': inventory,
+        'categories': categories
+    })

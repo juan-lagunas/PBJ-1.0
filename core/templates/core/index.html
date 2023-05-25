@@ -39,7 +39,7 @@
 
         <div class="relative w-11/12 lg:w-7/12 mx-auto py-10 md:py-20">
             <div class="grid grid-rows-2 xl:grid-rows-1 grid-cols-2 xl:grid-cols-4 gap-2 h-[380px] xl:h-[180px] 2xl:w-10/12 mx-auto">
-                <a href="" class=" text-center hover:text-blue-500 text-lg">
+                <a href="{% url 'inventory:browse' %}" class=" text-center hover:text-blue-500 text-lg">
                     <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/boxes.png" alt="" class="m-auto"></div>
                     <span class="capitalize">browse</span>
                 </a>
@@ -51,7 +51,7 @@
                     <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex "><img src="static/img/edit.png" alt="" class="m-auto h-1/2 object-scale-down"></div>
                     <span class="capitalize">inventory</span>
                 </a>
-                <a href="" class="text-center hover:text-blue-500 text-lg">
+                <a href="{% url 'inventory:logs' %}" class="text-center hover:text-blue-500 text-lg">
                     <div class="h-[143px] w-[143px] rounded-full bg-zinc-100 border dark:border-none mx-auto mb-3 flex"><img src="static/img/data.png" alt="" class="m-auto h-1/2 w-1/2"></div>
                     <span class="capitalize">Logs</span>
                 </a>

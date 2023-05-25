@@ -8,15 +8,13 @@ class AdminCategory(admin.ModelAdmin):
 class AdminPart(admin.ModelAdmin):
     list_display = ('id', 'category', 'name', 'description', 'price', 'date')
 
-
 class AdminInventory(admin.ModelAdmin):
     list_display = ('id', 'part', 'quantity', 'total')
     
 class AdminLog(admin.ModelAdmin):
-    list_display = ('id', 'part', 'quantity', 'total', 'user', 'date')
+    list_display = ('id', 'part', 'method', 'quantity', 'total', 'user', 'date')
 
 admin.site.register(Inventory, AdminInventory)
 admin.site.register(Log, AdminLog)
-
 admin.site.register(Category, AdminCategory)
 admin.site.register(Part, AdminPart)

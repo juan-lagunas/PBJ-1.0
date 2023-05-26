@@ -218,10 +218,9 @@ def logs(request):
 @login_required
 def browse(request):
     inventory = Inventory.objects.all()
-    categories = []
+    categories = set()
     for part in inventory:
-        if part.part.category not in categories:
-            categories.append(part.part.category)
+        categories.add(part.part.category)
 
     return render(request, 'inventory/browse.html', {
         'inventory': inventory,
